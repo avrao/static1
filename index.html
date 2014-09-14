@@ -61,9 +61,21 @@
 	var val2 = document.getElementById('arg2');
 
 function add(){
-	if (isNaN(val1.value) || isNaN(val2.value)){
+	if (isNaN(this.val1.value)){
 		alert("One or both of your inputs is/are not numeric");
-		return false;
+		this.val1.focus();
+	}
+	else if(isNaN(this.val2.value)){
+		alert("One or both of your inputs is/are not numeric");
+		this.val2.focus();
+	}
+	else if (this.val1.value === ""){
+		alert("Enter input value/s");
+		this.val1.focus();
+	}
+	else if(this.val2.value === ""){
+		alert("Enter input value/s");
+		this.val2.focus();
 	}
 	else{
 	var val3 = parseFloat(this.val1.value) + parseFloat(this.val2.value);
@@ -72,19 +84,31 @@ function add(){
 	}
 }
 function minus(){
-	if (isNaN(val1.value) || isNaN(val2.value)){
+	if (isNaN(this.val1.value)){
 		alert("One or both of your inputs is/are not numeric");
-		return false;
+		this.val1.focus();
 	}
-	if (parseInt(this.val1.value) >= parseInt(this.val2.value)){
+	else if(isNaN(this.val2.value)){
+		alert("One or both of your inputs is/are not numeric");
+		this.val2.focus();
+	}
+	else if (this.val1.value === ""){
+		alert("Enter input value/s");
+		this.val1.focus();
+	}
+	else if(this.val2.value === ""){
+		alert("Enter input value/s");
+		this.val2.focus();
+	}
+	else if(parseInt(this.val1.value) < parseInt(this.val2.value)){
+
+		alert("Input value 'X' should be greater than input value 'Y'");
+	}
+	else if (parseInt(this.val1.value) >= parseInt(this.val2.value)){
 		var val3 = parseInt(this.val1.value) - parseInt(this.val2.value);
 	
 		$("p").html("X minus / plus Y is " + val3);
 		return true;	
-	}
-	else {
-
-		alert("X should be greater than Y")
 	}
 
 }
