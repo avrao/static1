@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+	<title>Calculator - Addition/Subtraction</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<style>
+		body {
+			background:#EDFBFC;
+		}
+		h1{
+			color:blue; 
+			font-weight:bold;
+		}
+		h5{
+			color:blue;
+			font-weight:bold;
+		}
+		p{
+			font-size: 22px; 
+			color:blue;
+			font-weight:bold;
+		}
+		footer{
+			text-align:center;
+			margin:20% 0 0 0;
+		}
+		.header{
+			width:100%; 
+			height:50px;
+			text-align:center;
+		}
+		.content{
+			margin-top: 15%;
+			text-align:center;
+		}
+
+	</style>
+</head>
+<body>
+<header>
+<div class="header">
+	<h1>Calculator - Addition / Subtraction</h1><hr>
+</div>
+</header>
+<div class="content">
+	<h2> Adder / Subtractor</h2>
+
+	<label for="arg1">X = </label><input type="text" name="arg1" id="arg1" /><br>
+	<label for="arg2">Y = </label><input type="text" name="arg2" id="arg2" /><br>
+	<input type="submit" name="plus" id="plus" value="+" onclick="add()" />
+	<input type="submit" name="minus" id="minus" value="-" onclick="minus()" />
+
+	<p>X minus / plus Y is Z </p>
+</div>
+<footer><hr>
+	<h5>***by Anitha Rao***</h5>
+</footer>
+
+<script type="text/javascript">
+	var val1 = document.getElementById('arg1');
+	var val2 = document.getElementById('arg2');
+
+function add(){
+	if (isNaN(val1.value) || isNaN(val2.value)){
+		alert("One or both of your inputs is/are not numeric");
+		return false;
+	}
+	else{
+	var val3 = parseFloat(this.val1.value) + parseFloat(this.val2.value);
+	$("p").html("X minus / plus Y is " + val3);
+	return true;
+	}
+}
+function minus(){
+	if (isNaN(val1.value) || isNaN(val2.value)){
+		alert("One or both of your inputs is/are not numeric");
+		return false;
+	}
+	if (parseInt(this.val1.value) >= parseInt(this.val2.value)){
+		var val3 = parseInt(this.val1.value) - parseInt(this.val2.value);
+	
+		$("p").html("X minus / plus Y is " + val3);
+		return true;	
+	}
+	else {
+
+		alert("X should be greater than Y")
+	}
+
+}
+</script>
+</body>
+</html>
